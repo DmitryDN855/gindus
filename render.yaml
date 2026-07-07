@@ -1,0 +1,13 @@
+# Render Blueprint — static site (no build step, single self-contained HTML).
+# Deploy: Render Dashboard → New → Blueprint → connect this repo → Apply.
+services:
+  - type: web
+    name: gamedev-labor-us-jp
+    runtime: static
+    buildCommand: "echo 'no build — static HTML'"
+    staticPublishPath: .
+    pullRequestPreviewsEnabled: true
+    routes:
+      - type: rewrite
+        source: /*
+        destination: /index.html
